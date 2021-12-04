@@ -1,8 +1,12 @@
 package apiReviews.w12_04_21;
 
+import static io.restassured.RestAssured.*;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import static org.testng.Assert.*;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -27,5 +31,33 @@ public class ParametersTest {
 
 
     }
+
+    // with query parameter : nameContains : "m" and gender: male
+    @Test
+    public void queryParamTest(){
+
+        Response response = given().accept(ContentType.JSON)
+                .and().queryParam("gender","male")
+                .and().queryParam("nameContains","m")
+                .when().get(spartanUrl+"/api/spartans/search");
+
+        assertEquals(response.statusCode(),200);
+  }
+
+   // get me employees "department_id": 80
+
+
+    @Test
+    public void queryParamHR(){
+
+        Response response = given().accept(ContentType.JSON)
+                .and().queryParam("q","{\"department_id\": 80}")
+                .when().get(hrurl+"/employees");
+        response.prettyPrint();
+        assertEquals(response.statusCode(),200);
+
+    }
+
+
 
 }

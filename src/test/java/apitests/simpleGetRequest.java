@@ -12,6 +12,7 @@ import static io.restassured.RestAssured.given;
 public class simpleGetRequest {
     String hrurl = "http://54.92.248.102:1000/ords/hr/regions";
 
+
     @Test
     public void test1(){
         Response response = RestAssured.get(hrurl);

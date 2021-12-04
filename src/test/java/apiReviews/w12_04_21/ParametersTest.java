@@ -1,14 +1,15 @@
 package apiReviews.w12_04_21;
 
-import static io.restassured.RestAssured.*;
+
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import static org.testng.Assert.*;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import static org.testng.Assert.*;
+import static io.restassured.RestAssured.*;
 
 public class ParametersTest {
 

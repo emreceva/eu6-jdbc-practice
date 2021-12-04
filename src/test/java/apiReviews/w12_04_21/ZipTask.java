@@ -49,13 +49,22 @@ And body should contains following information
 
         String postCode = jsonPath.getString("\'post code\'");
         assertEquals(postCode,"22031");
- /*
-        country  is United States
-        country abbreviation is US
-        place name is Fairfax
-        state is Virginia
-        latitude is 38.8604
-*/
+
+//        country  is United States
+  assertEquals(jsonPath.getString("country"),"United States");
+     //   country abbreviation is US
+        assertEquals(jsonPath.getString("\'country abbreviation\'"),"US");
+
+     //   place name is Fairfax
+        assertEquals(jsonPath.getString("places[0].\'place name\'"),"Fairfax");
+
+     //   state is Virginia
+
+        assertEquals(jsonPath.getString("places[0].state"),"Virginia");
+      //  latitude is 38.8604
+
+        assertEquals(jsonPath.getString("places[0].latitude"),"38.8604");
+
 
     }
 

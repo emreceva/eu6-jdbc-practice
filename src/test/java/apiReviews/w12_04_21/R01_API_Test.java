@@ -25,6 +25,27 @@ public class R01_API_Test {
         Assert.assertEquals(response.contentType(),"application/json");
     }
 
+    // get me all regions from HR api     hrurl+"/regions"
+
+    @Test
+    public void testTwo(){
+
+        Response response = RestAssured.given().accept(ContentType.JSON)
+                .when().get(hrurl+"/regions");
+
+        // response.prettyPrint();
+
+        Assert.assertEquals(response.statusCode(),200);
+        Assert.assertEquals(response.contentType(),"application/json");
+        // does the response have "Europe" in it?
+        Assert.assertTrue(response.body().asString().contains("Europe"));
+        //does my response have the header name "Date" in it
+        Assert.assertTrue(response.headers().hasHeaderWithName("Date"));
+        // Transfer-Encoding  = chunked
+        Assert.assertEquals(response.header("Transfer-Encoding"),"chunked");
+
+    }
+
 
 
 }

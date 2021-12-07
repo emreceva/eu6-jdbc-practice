@@ -23,13 +23,13 @@ public class HamcrestMatchersApiTest {
     public void OneSpartanWithHamcrest(){
         given().accept(ContentType.JSON)
                 .and().pathParam("id",15).
-        when().get("http://3.80.189.73:8000/api/spartans/{id}")
+        when().get("http://54.92.248.102:8000/api/spartans/{id}")
                 .then().statusCode(200)
-                .and().assertThat().contentType(equalTo("application/json;charset=UTF-8"))
+                .and().assertThat().contentType(equalTo("application/json"))
                 .and().assertThat().body("id",equalTo(15),
-                "name",equalTo("Meta"),
-                                        "gender",equalTo("Female"),
-                                        "phone",equalTo(1938695106));
+                "name",equalTo("Peter"),
+                                        "gender",equalTo("Male"),
+                                        "phone",equalTo(8811111111L));
 
 
     }

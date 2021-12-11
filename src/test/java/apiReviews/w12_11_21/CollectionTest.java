@@ -57,6 +57,13 @@ public class CollectionTest {
             "state abbreviation": "OH",
             "latitude": "39.8285"
         }
+         {
+            "place name": "New York",
+            "longitude": "-84.2024",
+            "state": "Ohio",
+            "state abbreviation": "OH",
+            "latitude": "39.8285"
+        }
     ]
 }
  */
@@ -83,6 +90,8 @@ public class CollectionTest {
 
         assertEquals(placesFor45414.get(0).get("state"),"Ohio");
         assertEquals(placesFor45414.get(0).get("state abbreviation"),"OH");
+
+   //      placesFor45414.get(1).get("place name")
 
 
     }

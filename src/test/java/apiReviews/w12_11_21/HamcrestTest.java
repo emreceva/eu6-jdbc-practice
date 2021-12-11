@@ -62,7 +62,8 @@ public class HamcrestTest {
                 .body("country",equalTo("United States"),
                         "places.state[0]",equalTo("Ohio"),
                     "'post code'",equalTo("45414"),
-                        "'country abbreviation'",equalTo("US"));
+                        "'country abbreviation'",equalTo("US"),
+                        "places.'place name'[0]",equalTo("Dayton"));
 
 
 

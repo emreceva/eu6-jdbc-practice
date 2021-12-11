@@ -2,6 +2,7 @@ package apiReviews.w12_11_21;
 
 
 import Day6_POJO.Spartan;
+import com.google.gson.Gson;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
@@ -36,6 +37,7 @@ public class PojoTests {
     @Test
     public void zipTestWithPojo(){
 
+        Gson gson = new Gson();
         Response response = given().accept(ContentType.JSON)
                 .and().pathParam("zipCode",45414)
                 .when().get(zipUrl+"US/{zipCode}");
@@ -45,7 +47,12 @@ public class PojoTests {
         System.out.println(response.body().asString());
 
 
-        PostalCode pc45414 = response.body().as(PostalCode.class);
+        PostalCode pc45414 = gson.fromJson(response.body().asString(),PostalCode.class);
+
+      //  PostalCode pc45414 = response.body().as(PostalCode.class);
+
+        System.out.println(pc45414.getCountry());
+        System.out.println(pc45414.getPlaces().get(0).getPlaceName());
 
     }
 
